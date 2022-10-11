@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="registration-section">
+    <div class="row">
+        <div class="col">
+            <form method="POST" id="new_trainer_form" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                <table class="registration-form-table">
+                    {% for field in form if field.widget.input_type != 'hidden' %}
+                    <tr>
+                        <td>
+                            {{ field.label }}
+                        </td>
+                        <td>
+                            {{ field(placeholder=field.label.text)}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div style="margin: 20px; text-align: center;">
+                    <button class="form-submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

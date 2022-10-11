@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="pokemon-info-button-section">
+    <div class="pokemon-info-wrapper" style="text-align: center;">
+        <div class="pokemon-info-grid material-symbols-outlined">
+            {% if p_id == 1 %}
+            {% else %}
+                <a class="info-button" href="/pokemon/add_or_info/{{p_id - 1}}/get">arrow_circle_left</a>
+                <p class="button-section-p">PREVIOUS</p>
+            {% endif %}
+        </div>
+        <div class="pokemon-info-grid material-symbols-outlined">
+            <a class="info-button" href="/pokemon/add_or_info/{{p_id}}/post">add_circle</a>
+            <p class="button-section-p">ADD</p>
+        </div>
+        <div class="pokemon-info-grid material-symbols-outlined">
+            <a class="info-button" href="/pokemon/list">arrow_circle_up</a>
+            <p class="button-section-p">BACK</p>
+        </div>
+        <div class="pokemon-info-grid material-symbols-outlined">
+            <a class="info-button" href="/pokemon/add_or_info/{{ range(1, 905) | random }}/get">change_circle</a>
+            <p class="button-section-p">RANDOMIZE</p>
+        </div>
+        <div class="pokemon-info-grid material-symbols-outlined">
+            {% if p_id == 905 %}
+            {% else %}
+                <a class="info-button" href="/pokemon/add_or_info/{{p_id + 1}}/get">arrow_circle_right</a>
+                <p class="button-section-p">NEXT</p>
+            {% endif %}
+        </div>
+    </div>
+    
+</section>
+
+<section class="pokemon-profile-section">
+    <div class="pokemon-profile-wrapper">
+        <div class="pokemon-profile-box1">
+            <div class="pokemon-profile-innerbox1">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{p_id}}.png" style="width: 300px; height:300px">
+                <h3 style="font-weight: bold; font-size: 30px;">{{pokemons[p_id]}}</h5>
+                <div class="pokemon-type">
+                    {% for n in range(pokemon_types|length) %}
+                        <span style="background-color: {{ pokemon_type_colors[pokemon_types[n]] }}; font-size: 17px; color: white; padding: 5px 0 5px 9px; margin: 2px; border-radius:15%;">{{pokemon_types[n]|capitalize}} &nbsp;</span>
+                    {% endfor %}
+                    <h3 style="padding-top: 30px;">Weaknesses</h3>
+                    {% for n in range(weakness_list|length) %}
+                        <span style="background-color: {{pokemon_type_colors[weakness_list[n]]}}; font-size: 17px; color: white; padding: 5px 0 5px 9px; margin: 2px; border-radius:15%; display:inline-block;">{{weakness_list[n]|capitalize}} &nbsp;</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="pokemon-profile-box2">
+            <div class="pokemon-profile-innerbox2">
+                <h3 style="border-bottom: 1px solid #00950C;">Base Stats</h3>
+                <div class="stat-wrapper">
+                    {% for stat in p_stats %}
+                        <div class="stat-item-grid">
+                        {% for key in stat %}
+                            {{stat[key]['name']|capitalize}}
+                        {% endfor %}
+                        </div>
+                        <div class="stat-item-grid">
+                            {{stat['base_stat']}}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="pokemon-profile-wrapper2">
+            <div class="pokemon-profile-box3">
+                <div class="pokemon-profile-innerbox3">
+                <h3 style="text-align: center; border-bottom: 1px solid #00950C;">Location Encounters</h3>
+                    <div class="location-wrapper">    
+                    {% for location in pokemon_loc_response %}
+                    <div class="location-item-grid">
+                        {% for key in location %}
+                            {{location[key]['name']|capitalize}}
+                        {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="pokemon-profile-box4">
+                <div class="pokemon-profile-innerbox4">
+                    <h3 style="text-align: center; border-bottom: 1px solid #00950C;">Available Movesets</h3>
+                    <div class="moveset-wrapper">
+                    {% for move in p_moveset %}
+                        <div class="moveset-item-grid">
+                            {% for key in move %}
+                                {{move[key]['name']|capitalize}}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

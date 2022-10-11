@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="pokemon-gen-container">
+  <a class="gen-button" id="1">GEN 1</a>
+  <a class="gen-button" id="2">GEN 2</a>
+  <a class="gen-button" id="3">GEN 3</a>
+  <a class="gen-button" id="4">GEN 4</a>
+  <a class="gen-button" id="5">GEN 5</a>
+  <a class="gen-button" id="6">GEN 6</a>
+  <a class="gen-button" id="7">GEN 7</a>
+  <a class="gen-button" id="8">GEN 8</a>
+</div>
+  
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <div class="pokemon-list-flash" style="margin-top: 50px;">
+      {% for message in messages %}
+      <div>
+        {{ message }}
+      </div>
+      {% endfor %}
+  </div>
+{% endif %}
+{% endwith %}
+
+  <div class="pokemon-div-wrapper">
+
+  </div>
+
+{% endblock %}

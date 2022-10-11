@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Holtwood One SC');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+/* base.html */
+
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-bar-div{
+    width: 65%;
+    margin: auto;
+    position: absolute;
+    top: 148px;
+    left: 0;
+    right: 0;
+}
+
+.content-container{
+    padding: 50px 0 50px 0;
+    margin: auto;
+    width: 65%;
+}
+
+.website-title-header{
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(39, 44 ,51);
+}
+
+.website-title-anchor{
+    color: rgba(122, 198, 160);
+    font-size: 50px;
+    font-family: 'Lobster', sans-serif;
+    text-decoration: none !important;
+}
+
+.website-title-anchor:hover{
+    color: rgba(122, 198, 160);
+}
+
+.nav-bar-wrapper{
+    display: grid;
+    margin: auto;
+    height: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(63, 70 ,82); 
+}
+
+.nav-bar-left{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin: auto;
+}
+
+.nav-bar-center{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: auto;
+}
+
+.nav-bar-right{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin: auto;
+}
+
+.nav-bar-item{
+    font-family: 'Orbitron', sans-serif;
+}
+.user-nav-links{
+    font-size: 15px;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none !important;
+}
+
+.user-nav-links:hover{
+    color: white;
+}
+
+/* homepage.html */
+
+.no-profile-section{
+    padding: 50px;
+    margin: auto;
+    border: 1px solid rgba(63, 70 ,82);
+    background-color: rgba(122, 198, 160);
+    background-image: url('/static/chikorita-wallpaper.png');
+}
+
+.no-profile-div{
+    font-family: 'Orbitron', sans-serif;
+    max-width: 65%;
+    margin: auto;
+    text-align: center;
+}
+
+.trainer-profile-section{
+    padding: auto;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.trainer-profile-wrapper{
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 195px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: white;
+}
+
+.trainer-profile-h1{
+    margin: auto;
+    font-size: 40px;
+    font-family:'Holtwood One SC';
+}
+
+.profile-box1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+}
+
+.profile-box2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+    margin: auto;
+}
+
+.profile-box3{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    text-align: center;
+    margin: auto;
+}
+
+.pokemon-box4{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.pokemon-box5{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.pokemon-box6{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.profile-info-2{
+    margin: auto;
+    padding: 5px;
+}
+
+.profile-box-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+    background-color: #f5f5dc;
+}
+.left-profile-box-grid{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    padding: 20px 0 0 5px;
+    height: 50%;
+}
+
+.center-profile-box-grid{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    padding: 25px;
+}
+
+.right-profile-box-grid{
+    padding: 20px 50px 0 0;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.other-pokemon-wrapper{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.other-pokemon-grid-wrapper{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.other-pokemons{
+    font-size: 20px;
+}
+
+#view-poke-button{
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none !important;
+    transition: 2s;
+    transform: scale(1);
+}
+
+#view-poke-button:hover{
+    transition: 2s;
+    transform: scale(1.3);
+}
+
+.no-pokemon-sign{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+
+}
+
+#chikorita-background{
+    object-fit:cover;
+}
+
+#profile-picture{
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+#pokeball-icon{
+    font-size: 50px;
+    color: rgba(202, 59, 79);
+    position:relative;
+    overflow:auto;
+    text-decoration: none !important;
+}
+
+#pokeball-icon:hover{
+    color: #7F8487;
+    transition-duration: 0.2s;
+}
+
+#other-pokeball-icon{
+    font-size: 25px;
+    color: rgba(202, 59, 79);
+    position:relative;
+    overflow:auto;
+    text-decoration: none !important;
+}
+
+#other-pokeball-icon:hover{
+    color: #7F8487;
+    transition-duration: 0.2s;
+}
+
+/* new_trainer.html */
+
+td{
+    padding-left: 30px;
+}
+
+.trainer-form{
+    margin: auto;
+}
+
+.registration-section, .login-section{
+    padding-top: 30px;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid rgba(63, 70 ,82);
+    background-image: url('/static/leafy-background.png');
+}
+
+.registration-form-table, td{
+    font-size: 20px;
+    padding: 15px;
+    margin: auto;
+}
+.form-submit-button{
+    font-size: 15px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    color: rgba(122, 198, 160);
+    background-color: rgba(63, 70 ,82);
+    border-radius: 20px;
+}
+
+/* pokemon_list.html */
+
+.pokemon-div-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    margin: auto;
+    grid-gap: 50px
+
+}
+
+.pokemon-list-grid{
+    background-color: #f5f5dc;
+    border-radius: 15%;
+    padding: 20px;
+}
+
+.pokemon-name-div, .pokeball-div{
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.pokemon-list-flash{
+    padding: 20px;
+    margin-top: 20px;
+    margin: auto;
+    max-width: 50%;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #f5f5dc;
+}
+.pokemon-gen-container{
+    margin: auto;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight:400;
+}
+
+.gen-button{
+    margin: auto;
+    color: white !important;
+    padding: 10px;
+    margin: 20px;
+    font-size: 15px;
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none !important;
+    border-radius: 30%;
+    background-color: rgba(63, 70 ,82); 
+    cursor: pointer;
+}
+
+.active-gen-button{
+    background-color: rgba(122, 198, 160);
+    color:rgba(63, 70 ,82) !important; 
+    cursor: default;
+}
+
+
+/* pokemon_info.html */
+
+.pokemon-info-button-section{
+    margin: auto;
+    width: 80%;
+    font-size: 20px;
+}
+
+.pokemon-info-wrapper{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 100px;
+}
+
+
+.box1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.box2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.button-section-p{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+}
+
+.info-button{
+    margin: auto;
+    padding: 10px;
+    font-size: 50px;
+    color: black;
+    text-decoration: none !important;
+}
+
+.info-button:hover{
+    color: rgba(122, 198, 160);
+}
+
+.pokemon-profile-wrapper{
+    padding-top: 50px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pokemon-profile-wrapper2{
+    padding-top: 150px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.pokemon-profile-box1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+
+.pokemon-profile-box2{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: auto;
+}
+
+.pokemon-profile-box3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.pokemon-profile-box4{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    
+}
+
+.pokemon-profile-innerbox1{
+    padding: 80px;
+    background-color: #f5f5dc;
+    border-radius: 15%;
+    transition-duration: 1.5s;
+    transform:scale(1);
+}
+
+.pokemon-profile-innerbox1:hover, .pokemon-profile-innerbox4:hover{
+    transform:scale(1.1);
+    transition-duration: 1.5s;
+}
+
+.pokemon-profile-innerbox2{
+    font-size: 25px;
+}
+
+.pokemon-profile-innerbox3{
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 50px;
+    width: 80%;
+    font-size: 17px;
+}
+
+.pokemon-profile-innerbox4{
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    background-color: #f5f5dc;
+    border-radius:5%;
+    transition-duration: 1.5s;
+    transform:scale(1);
+}
+
+.stat-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.stat-item-grid{
+    padding: 5px 45px 5px 0;
+}
+
+.pokemon-type{
+    font-size: 18px;
+    font-weight: bolder;
+    font-family: 'Raleway', sans-serif;
+}
+
+.location-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.location-item-grid{
+    display: flex;
+    margin: 5px;
+    padding: 3px;
+}
+
+.moveset-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.moveset-item-grid{
+    font-size: 17px;
+    padding: 3px;
+}
+
+.pokeball-anchor-button{
+    /* Used in app.js */
+    font-size: 35px;
+    color: rgba(255, 28, 28);
+    text-decoration: none !important;
+}

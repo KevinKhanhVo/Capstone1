@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="pokemon-list-flash" style="text-align: center; margin-bottom: 30px;">
+        {% for message in messages %}
+        <div>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
+
+{% if g.trainer %}
+<section class="trainer-profile-section">
+    <div class="trainer-profile-wrapper" style="background-color: #f5f5dc;">
+        <div class="profile-box1">
+            <div class="trainer-profile-h1">
+                <p style="text-align: center; padding-top: 25px;">TRAINER PROFILE</p> 
+            </div>
+        </div>
+        <div class="profile-box2">
+            <div>
+                <img id='profile-picture' src="/static/{{trainer.image_url}}" alt="No image!">
+            </div>
+            
+        </div>
+        <div class="profile-box3">
+            <h3>{{trainer.trainer_name}}</h3>
+            <h3>Region</h3>
+            <h3>Hometown</h3>
+            <h3>Badge</h3>
+        </div>
+
+        <div class="other-pokemon-wrapper">
+            <h4 style="text-align: center; font-weight: bold;">OTHER POKEMONS</h4>
+            <div class="other-pokemon-grid-wrapper">
+                {% for n in range(6, 18) %}
+                    {% if g.trainer.pokemon[n] %}
+                        <div class="col material-icons other-pokemons">
+                                <a id="other-pokeball-icon" href="/pokemon/delete/{{g.trainer.pokemon[n].id}}">catching_pokemon</a>
+                            <div>
+                                <img src="{{g.trainer.pokemon[n].image_url}}" height="50px" width="50px">
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if g.trainer.pokemon %}
+            {% for n in range(g.trainer.pokemon|length) %}
+                {% if 6 > n %}
+                <div class="pokemon-box{{n}}">
+                    <div class="profile-box-wrapper">
+                        <div class="left-profile-box-grid material-icons">
+                            <a id="pokeball-icon" href="/pokemon/delete/{{g.trainer.pokemon[n].id}}">catching_pokemon</a>
+                        </div>
+                        <div class="center-profile-box-grid">
+                            <img src="{{g.trainer.pokemon[n].image_url}}" height="100px" width="100px">
+                            <div>
+                                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;">{{g.trainer.pokemon[n].name|capitalize}}</p>
+                            </div>
+                        </div>
+                        <div class="right-profile-box-grid" >
+                            <h3 style="border-bottom: 1px solid black; padding: 0 15px 0 15px;">Moves</h3>
+                            {% for move in g.trainer.pokemon[n].moves %}
+                                <h2 style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">{{move.name|capitalize}}</h2>
+                            {% endfor %}
+                        </div> 
+                    </div>
+                </div>
+                {% else %}
+            
+                {% endif %}
+            {% endfor %}
+        {% else %}
+                <div class="no-pokemon-sign" style="text-align: center; margin: auto;" >
+                    <h1 style="font-family:Raleway">NO POKEMONS CAPTURED</h1>
+                </div>
+        {% endif %}
+    </div>
+</section>
+
+
+
+{% else %}
+
+<section class="no-profile-section">
+    <div class='profile-header-container'>
+        <div class="no-profile-div">
+            <div>
+                <h1 style="padding: 0 0 0 50px; border-bottom: 1px solid #00950C;">NO PROFILE</h1>
+            </div>
+            <div>
+                <h3 style="padding: 25px 0 0 50px;">Login or create an account.</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+{% endblock %}

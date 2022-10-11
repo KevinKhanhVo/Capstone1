@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="login-section">
+    <div class="row">
+        <div class="col">
+            <form method="POST" id="login-trainer-form">
+                {{ form.hidden_tag() }}
+                
+                <table class="login-form-table" style="margin: auto;">
+                    {% for field in form if field.widget.input_type != 'hidden' %}
+                    <tr>
+                        <td>
+                            {{ field.label }}
+                        </td>
+                        <td>
+                            {{ field(placeholder=field.label.text)}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div style="margin: 20px; text-align:center;">
+                    <button class="form-submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
