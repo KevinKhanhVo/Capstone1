@@ -19,7 +19,8 @@ app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
-# toolbar = DebugToolbarExtension(app)
+ALLOWED_HOSTS = ['cichorium.herokuapp.com', '127.0.0.1']
+
 
 connect_db(app)
 db.create_all()
@@ -61,7 +62,6 @@ TYPE_COLORS = {
 
 @app.before_request
 def add_trainer_to_global():
-    # session.clear()
 
     if CURRENT_TRAINER in session:
         g.trainer = Trainer.query.get(session[CURRENT_TRAINER])
