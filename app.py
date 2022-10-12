@@ -12,15 +12,11 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secretpokemon@app"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///pokemon-app'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cichorium'
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
-
-app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+app.config['DEBUG'] = False
 
 ALLOWED_HOSTS = ['cichorium.herokuapp.com', '127.0.0.1']
-
 
 connect_db(app)
 db.create_all()
