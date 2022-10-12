@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, flash, jsonify, session, g
+from flask import Flask, render_template, redirect, flash, session, g
 from models import db, connect_db, Trainer, Pokemon, Move, PokemonType, Location
 from forms import LoginForm, TrainerAddForm
 from werkzeug.utils import secure_filename
@@ -17,6 +17,8 @@ app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 app.config['DEBUG'] = False
 
 ALLOWED_HOSTS = ['cichorium.herokuapp.com', '127.0.0.1']
+
+app.app_context().push()
 
 connect_db(app)
 db.create_all()
