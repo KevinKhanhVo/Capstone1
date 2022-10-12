@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, request, flash, jsonify, session, g
-from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Trainer, Pokemon, Move, PokemonType, Location
 from forms import LoginForm, TrainerAddForm
 from werkzeug.utils import secure_filename
