@@ -12,7 +12,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secretpokemon@app"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cichorium'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///cichorium')
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 app.config['DEBUG'] = False
 
