@@ -8,13 +8,13 @@ body, html{
     margin: 0;
     padding: 0;
     height: 100%;
-
 }
 
 body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: rgba(187, 239, 165) !important;
 }
 
 footer{
@@ -39,9 +39,20 @@ footer{
 }
 
 .website-title-header{
-    text-align: center;
-    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     background-color: rgba(39, 44 ,51);
+}
+
+.left-header{
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.center-header{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin: auto;
 }
 
 .website-title-anchor{
@@ -559,4 +570,50 @@ td{
 .errors{
     font-size: 16px;
     color: rgba(255, 28, 28);
+}
+
+/* Media queries */
+
+@media screen and (min-width: 381px){
+    /* base.html */
+    .nav-bar-wrapper{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    /* pokemon_list.html */
+    .pokemon-gen-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items:center;
+    }
+
+    .pokemon-div-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items:center;
+    }
+
+    /* pokemon_info.html */
+    .pokemon-profile-wrapper{
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items:center;
+    }
+}
+
+@media screen and (max-width: 645px){
+    label{
+        font-size: 15px; 
+    }
+    
+    input[type=text], input[type=password] {
+        font-size: 15px;
+        max-width: 40%;
+    }
 }
