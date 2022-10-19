@@ -368,7 +368,7 @@ td{
     margin-top: 50px;
     margin-bottom: 50px;
     max-width: 50%;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     border: 1px solid black;
     background-color: #f5f5dc;
@@ -575,7 +575,7 @@ td{
 
 /* Media queries */
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1272px){
     /* base and homepage */
     .nav-bar-wrapper{
         display: flex;
@@ -592,11 +592,22 @@ td{
         font-size: 40px;
     }
 
+    .trainer-profile-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items:center;
+    }
+
+    .profile-box1, .profile-box3, .other-pokemon-wrapper{
+        width: 100%;
+    }
+
     /* user login and registration */
     label{
         font-size: 15px; 
     }
-    
+
     input[type=text], input[type=password] {
         font-size: 15px;
         max-width: 40%;
