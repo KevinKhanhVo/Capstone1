@@ -336,7 +336,6 @@ td{
     grid-template-columns: repeat(3, 2fr);
     margin: auto;
     grid-gap: 50px
-
 }
 
 .pokemon-list-grid{
