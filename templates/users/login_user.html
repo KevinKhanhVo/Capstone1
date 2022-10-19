@@ -4,6 +4,16 @@
 <section class="login-section">
     <div class="row">
         <div class="col">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="errors" style="text-align: center;">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
             <form method="POST" id="login-trainer-form">
                 {{ form.hidden_tag() }}
                 
@@ -15,6 +25,11 @@
                         </td>
                         <td>
                             {{ field(placeholder=field.label.text)}}
+                            <div class="errors">
+                                {% for error in field.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}

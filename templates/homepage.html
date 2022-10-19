@@ -19,20 +19,20 @@
     <div class="trainer-profile-wrapper" style="background-color: #f5f5dc;">
         <div class="profile-box1">
             <div class="trainer-profile-h1">
-                <p style="text-align: center; padding-top: 25px;">TRAINER PROFILE</p> 
+                <p style="text-align: center; padding-top: 25px;">{{g.trainer.trainer_name}}</p> 
             </div>
         </div>
         <div class="profile-box2">
             <div>
-                <img id='profile-picture' src="/static/{{trainer.image_url}}" alt="No image!">
+                <img id='profile-picture' src="/static/images/{{ trainer.image_url }}" alt="No image!">
             </div>
             
         </div>
         <div class="profile-box3">
             <h3>{{trainer.trainer_name}}</h3>
-            <h3>Region</h3>
-            <h3>Hometown</h3>
-            <h3>Badge</h3>
+            <h3>Kanto Region</h3>
+            <h3>Pallet Town</h3>
+            <h3 class="material-icons">token</h3>
         </div>
 
         <div class="other-pokemon-wrapper">
@@ -92,12 +92,14 @@
 <section class="no-profile-section">
     <div class='profile-header-container'>
         <div class="no-profile-div">
-            <div>
-                <h1 style="padding: 0 0 0 50px; border-bottom: 1px solid #00950C;">NO PROFILE</h1>
-            </div>
-            <div>
-                <h3 style="padding: 25px 0 0 50px;">Login or create an account.</h3>
-            </div>
+            <h1 class="welcome-h1">Welcome to Cichorium!</h1>
+        </div>
+        <div>
+            <h4 style="padding-top: 20px;">Cichorium is a website made to interact with pokemons.</h4>
+            <h4>You will be able to view pokemons and add them to your team.</h4>
+            <a href="/pokemon/list">
+                <h4>View Pokedex</h4>
+            </a>
         </div>
     </div>
 </section>

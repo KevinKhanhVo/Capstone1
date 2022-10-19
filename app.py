@@ -10,15 +10,16 @@ import requests
 import random
 import os
 
-uri = os.environ.get("DATABASE_URL")
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+# uri = os.environ.get("DATABASE_URL")
+# if uri.startswith("postgres://"):
+#     uri = uri.replace("postgres://", "postgresql://", 1)
 
-SQLALCHEMY_DATABASE_URI = uri
+# SQLALCHEMY_DATABASE_URI = uri
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secretpokemon@app"
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+# app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///cichorium"
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 app.config['DEBUG'] = False
 
@@ -92,7 +93,7 @@ def invalid_route(e):
     return redirect('/pokemon')
 
 def upload_to_static_folder(file_storage):
-    """ Extract the filename and store in static working directory."""
+    """Extract the filename and store in static working directory."""
 
     static_dir = os.path.join(os.path.dirname(app.instance_path), 'static')
     filename = secure_filename(file_storage.filename)
@@ -112,13 +113,13 @@ def signup():
         trainer_name = form.trainer_name.data
         username = form.username.data
         password = bcrypt.generate_password_hash(form.password.data).decode('UTF-8')
-        img_url = form.image_url.data or Trainer.image_url.default.arg
+        img_url = upload_to_static_folder(form.image_url.data) if (form.image_url.data is not None) else Trainer.image_url.default.arg
 
         trainer = Trainer(
                             trainer_name=trainer_name,
                             username=username,
                             password=password,
-                            image_url=upload_to_static_folder(img_url)
+                            image_url=img_url
                         )
                     
         db.session.add(trainer)
@@ -149,7 +150,10 @@ def login():
         if trainer:
             session[CURRENT_TRAINER] = trainer.id
             return redirect('/pokemon')
-    
+        
+        else:
+            flash("Wrong username and/or password!")
+        
     return render_template('/users/login_user.html', form=form)
 
 
@@ -267,7 +271,6 @@ def add_or_show_pokemon(id, method):
     pokemon_types = []
     merged_weakness_list = []
 
-
     pokemon_response = requests.get(POKEMON_URL + str(id)).json()
     pokemon_loc_response = requests.get(POKEMON_URL + str(id) + "/encounters").json()
     
@@ -291,21 +294,27 @@ def add_or_show_pokemon(id, method):
             flash("No team to add pokemons in.")
             flash("Create an account or login!")
             return redirect('/pokemon/list')
-        
+
         trainer_id = Trainer.query.get_or_404(g.trainer.id)
 
-        add_pokemon_to_trainer = Pokemon(name = pokemon_response['name'], trainer_id=trainer_id.id, image_url=f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{id}.png")
-        db.session.add(add_pokemon_to_trainer)
-        db.session.commit()
+        already_captured = Pokemon.query.filter_by(name = pokemon_response['name'], trainer_id=trainer_id.id).first()
+        if already_captured:
+            flash(f"{ pokemon_response['name'].upper() } is already in your team.")
+            return redirect('/pokemon/list')
 
-        add_pokemon_locations(pokemon_loc_response, add_pokemon_to_trainer.id)
-        add_pokemon_types(pokemon_response['types'], add_pokemon_to_trainer.id)
-        add_pokemon_moves(pokemon_response['moves'], add_pokemon_to_trainer.id)
+        else:
+            add_pokemon_to_trainer = Pokemon(name = pokemon_response['name'], trainer_id=trainer_id.id, image_url=f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{id}.png")
+            db.session.add(add_pokemon_to_trainer)
+            db.session.commit()
 
-        db.session.commit()
+            add_pokemon_locations(pokemon_loc_response, add_pokemon_to_trainer.id)
+            add_pokemon_types(pokemon_response['types'], add_pokemon_to_trainer.id)
+            add_pokemon_moves(pokemon_response['moves'], add_pokemon_to_trainer.id)
 
-        flash(f"{pokemon_response['name'].upper()} has been captured!")
-        return redirect('/pokemon')
+            db.session.commit()
+
+            flash(f"{pokemon_response['name'].upper()} has been captured!")
+            return redirect('/pokemon')
 
     else:
         return render_template('/pokemon/pokemon_info.html', 

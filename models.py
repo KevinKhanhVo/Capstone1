@@ -28,6 +28,7 @@ class Trainer(db.Model):
         else:
             return False
 
+
 class Pokemon(db.Model):
     """Pokemon table."""
 
