@@ -8,10 +8,11 @@ body, html{
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
+    overflow: hidden; 
 }
 
 body{
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: rgba(187, 239, 165) !important;
@@ -23,17 +24,7 @@ footer{
     width: 100%;
 }
 
-.nav-bar-div{
-    width: 65%;
-    margin: auto;
-    position: absolute;
-    top: 148px;
-    left: 0;
-    right: 0;
-}
-
 .content-container{
-    padding: 50px 0 50px 0;
     width: 65%;
     margin: 0 auto auto auto;
 }
@@ -67,9 +58,14 @@ footer{
     color: rgba(122, 198, 160);
 }
 
+.nav-bar-div{
+    width: 65%;
+    margin: 0 auto 0 auto;
+    margin-top: -25px;
+}
+
 .nav-bar-wrapper{
     display: grid;
-    margin: auto;
     height: 50px;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgba(63, 70 ,82); 
@@ -331,6 +327,7 @@ td{
     padding: 15px;
     margin: auto;
 }
+
 .form-submit-button{
     font-size: 15px;
     padding: 10px;
@@ -532,7 +529,7 @@ td{
     padding: 5px 45px 5px 0;
 }
 
-.pokemon-type{
+.pokemon-info-type{
     font-size: 18px;
     font-weight: bolder;
     font-family: 'Raleway', sans-serif;
@@ -584,7 +581,7 @@ td{
         align-items:center;
     }
 
-    .nav-bar-div, .content-container{
+    .nav-bar-div{
         width: 100%;
     }
 
@@ -599,7 +596,7 @@ td{
         align-items:center;
     }
 
-    .profile-box1, .profile-box3, .other-pokemon-wrapper{
+    .content-container, .profile-box1, .profile-box3, .other-pokemon-wrapper{
         width: 100%;
     }
 
@@ -629,12 +626,44 @@ td{
     }
 
     /* pokemon_info.html */
-    .pokemon-profile-wrapper{
+    .pokemon-profile-wrapper, .pokemon-profile-wrapper2{
         height: auto;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items:center;
+    }
+    .pokemon-info-button-section{
+        height: auto;
+        width: 100%;
+    }
+
+    .info-button{
+        font-size: 40px;
+    }
+
+    .button-section-p{
+        font-size: 12px;
+    }
+
+    .pokemon-profile-innerbox1, .location-wrapper, .moveset-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .pokemon-info-image, .pokemon-info-name, .pokemon-info-type{
+        height: auto;
+        width: 100%;
+    }
+
+    .pokemon-info-image > img{
+        height: auto;
+        width: 100%;
+    }
+
+    .moveset-item-grid{
+        width: 100%;
     }
 }

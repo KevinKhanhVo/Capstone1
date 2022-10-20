@@ -37,9 +37,13 @@
     <div class="pokemon-profile-wrapper">
         <div class="pokemon-profile-box1">
             <div class="pokemon-profile-innerbox1">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{p_id}}.png" style="width: 300px; height:300px">
-                <h3 style="font-weight: bold; font-size: 30px;">{{pokemons[p_id]}}</h5>
-                <div class="pokemon-type">
+                <div class="pokemon-info-image">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{p_id}}.png" width="300px" height="300px">
+                </div>
+                <div class="pokemon-info-name">
+                    <h3 style="font-weight: bold; font-size: 30px;">{{pokemons[p_id]}}</h5>
+                </div>
+                <div class="pokemon-info-type">
                     {% for n in range(pokemon_types|length) %}
                         <span style="background-color: {{ pokemon_type_colors[pokemon_types[n]] }}; font-size: 17px; color: white; padding: 5px 0 5px 9px; margin: 2px; border-radius:15%;">{{pokemon_types[n]|capitalize}} &nbsp;</span>
                     {% endfor %}
@@ -52,7 +56,7 @@
         </div>
         <div class="pokemon-profile-box2">
             <div class="pokemon-profile-innerbox2">
-                <h3 style="border-bottom: 1px solid #00950C;">Base Stats</h3>
+                <h3 style="border-bottom: 1px solid #00950C; margin: 50px; text-align:center;">Base Stats</h3>
                 <div class="stat-wrapper">
                     {% for stat in p_stats %}
                         <div class="stat-item-grid">
