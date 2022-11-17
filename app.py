@@ -2,25 +2,25 @@ from flask import Flask, render_template, redirect, flash, session, g
 from models import db, connect_db, Trainer, Pokemon, Move, PokemonType, Location
 from forms import LoginForm, TrainerAddForm
 from werkzeug.utils import secure_filename
+from psycopg2 import connect
 
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt()
 
 import requests
 import random
-# import os
 
-# uri = os.environ.get("DATABASE_URL")
-# if uri.startswith("postgres://"):
-#     uri = uri.replace("postgres://", "postgresql://", 1)
-
-# SQLALCHEMY_DATABASE_URI = uri
+conn = connect(
+    host="dpg-cdr9l7da4991vat3bf80-a",
+    database="cichorium",
+    user="kevlovesrice",
+    password="qY3aiPkE9wAGHiXI7c43qvreNz8Rzyey",
+    port=5432
+)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secretpokemon@app"
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///cichorium"
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 app.config['DEBUG'] = False
 
