@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, flash, session, g
 from models import db, connect_db, Trainer, Pokemon, Move, PokemonType, Location
 from forms import LoginForm, TrainerAddForm
 from werkzeug.utils import secure_filename
+from psycopg2 import connect
 
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt()
@@ -9,6 +10,14 @@ bcrypt = Bcrypt()
 import requests
 import random
 import os
+
+conn = connect(
+    host="dpg-cdr9l7da4991vat3bf80-a",
+    database="cichorium",
+    user="kevlovesrice",
+    password="qY3aiPkE9wAGHiXI7c43qvreNz8Rzyey",
+    port=5432
+)
 
 uri = os.environ.get("DATABASE_URL")
 if uri.startswith("postgres://"):
