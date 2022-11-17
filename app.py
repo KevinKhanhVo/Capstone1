@@ -21,7 +21,7 @@ conn = connect(
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secretpokemon@app"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "cichorium"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://kevlovesrice:qY3aiPkE9wAGHiXI7c43qvreNz8Rzyey@dpg-cdr9l7da4991vat3bf80-a.oregon-postgres.render.com/cichorium"
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 app.config['DEBUG'] = False
 
