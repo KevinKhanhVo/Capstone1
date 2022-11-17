@@ -10,18 +10,17 @@ import requests
 import random
 import os
 
-# uri = os.environ.get("DATABASE_URL")
-# if uri.startswith("postgres://"):
-#     uri = uri.replace("postgres://", "postgresql://", 1)
+uri = os.environ.get("DATABASE_URL")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
 
-# SQLALCHEMY_DATABASE_URI = uri
+SQLALCHEMY_DATABASE_URI = uri
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secretpokemon@app"
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///cichorium"
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///cichorium"
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
 app.config['DEBUG'] = False
 
