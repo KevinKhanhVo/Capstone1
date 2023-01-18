@@ -4,7 +4,7 @@
 https://cichorium.onrender.com/pokemon
 
 ## Overview
-A website where users can view categories of pokemons filtered by generations. Users are able to select a pokemon to see detailed information on their base stats, locations and list of movesets. Users can sign up to create a trainer profile and to catch pokemons. Pokemons that are caught will have 5 moves randomly selected from their movesets. Trainers are able to release the pokemons back to the wild and to select new ones. Trainers will see the first 6 pokemons as their main pokemons.
+Web application where users can view categories of pokemons filtered by generations. Users are able to select a pokemon to see in detailed information on their base stats, locations and list of movesets. Users can sign up to create a trainer profile and to catch pokemons. Pokemons that are caught will have 5 moves randomly selected from their list of moves. Trainers are able to release the pokemons back into the wild and to select new ones. Trainers will see the first 6 pokemons as their main pokemons and the rest will be in their backpack.
 
 ## Tech Stack
 Python, Flask, WTForms, SQLAlchemy, PostgreSQL, JavaScript
