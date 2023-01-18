@@ -24,7 +24,5 @@ Passwords are secured using Flask Bcrypt. Users are able to view the pokedex and
 
 ## Long Term Goals for Additional Features
 * Implementation of Pokemon battle system between trainers and their current pokemons.
-* Implementation of gym battles.
-* Implementation of gym badges.
-* Keep records of wins and losses for all battles. 
-* Keep records of gym attempts. 
+* Implementation of gym battles, badges and number of attempts.
+* Implementation of win/lose record for all battles. 
